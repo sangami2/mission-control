@@ -1,69 +1,38 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, ClipboardCheck, Database, FileCheck2, Gauge, GitBranch, RotateCcw, Scale, Send, ShieldCheck, UserRoundCheck, Workflow as WorkflowIcon } from "lucide-react";
+import { ConceptLabel } from "@/components/brand";
+import { SiteHeader } from "@/components/site-header";
+import { WorkflowPreview } from "@/components/workflow-preview";
 
-export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+const productSurfaces = [
+  [WorkflowIcon,"Workflow operations","Run complete populations through visible stages, then inspect what each boundary produced."],
+  [ClipboardCheck,"Human review","See the evidence, policy trigger, and exact editable draft before releasing consequential work."],
+  [ShieldCheck,"Governance","Publish confidence and bulk-review rules outside Claude, then recalculate active queues."],
+  [RotateCcw,"Reset demo","Clear runs, decisions, actions, and policy edits without touching project or provider configuration."],
+];
+
+export default function Home(){return <main>
+  <SiteHeader/>
+  <section className="noise relative overflow-hidden border-b border-[#dce7f1] bg-[linear-gradient(130deg,#fbfdff_0%,#f1f8ff_54%,#f9fbff_100%)]">
+    <div className="absolute -right-40 -top-44 size-[600px] rounded-full bg-[#4eb8ed]/10 blur-3xl"/>
+    <div className="page-shell relative grid min-h-[760px] items-center gap-14 py-16 lg:grid-cols-[.88fr_1.12fr] lg:py-20">
+      <div className="max-w-[620px]"><p className="eyebrow mb-5 text-[#1263e6]">Agent workflow operations for mission-driven software</p><div className="-mt-2 mb-4 flex items-center gap-2 sm:hidden"><span className="size-1.5 rounded-full bg-[#f36f56]"/><span className="text-[10px] font-medium text-[#6b7f92]">Independent concept by Akash Sangami</span></div><h1 className="text-balance text-[48px] font-[680] leading-[.99] tracking-[-.055em] text-[#10253f] sm:text-[68px] lg:text-[74px]">Operate AI workflows your team can <span className="font-editorial font-normal italic text-[#1263e6]">inspect and control.</span></h1><p className="mt-7 max-w-[590px] text-[17px] leading-7 text-[#536b82] sm:text-[18px]">Screen complete synthetic populations, watch every stage execute, inspect evidence and policy outcomes, and require a person before consequential work is released.</p><div className="mt-9 flex flex-wrap gap-3"><Link href="/studio" className="focus-ring inline-flex h-12 items-center gap-2 rounded-full bg-[#1263e6] px-6 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(18,99,230,.24)] transition hover:-translate-y-0.5 hover:bg-[#0d54c5]">Run the live prototype <ArrowRight size={16}/></Link><Link href="/case-study" className="focus-ring inline-flex h-12 items-center rounded-full border border-[#c4d4e3] bg-white px-6 text-sm font-semibold text-[#193650] hover:bg-[#f9fcff]">Read the product case study</Link></div><div className="mt-10 hidden items-center gap-3 border-t border-[#d8e4ee] pt-5 sm:flex"><span className="grid size-8 place-items-center rounded-full bg-[#e3f1ff] text-xs font-bold text-[#1263e6]">AS</span><ConceptLabel/></div></div>
+      <div className="min-w-0 lg:-mr-10"><div className="mb-3 flex items-center justify-between gap-4 px-2"><span className="truncate text-[10px] font-semibold text-[#64798d]">Northstar Professional Association <span className="font-normal text-[#92a0ae]">· Synthetic demo</span></span><span className="shrink-0 font-mono text-[10px] text-[#8b9bab]">12 MEMBERS</span></div><div className="overflow-x-auto pb-4"><WorkflowPreview/></div><div className="ml-auto -mt-1 flex w-fit items-center gap-3 rounded-xl border border-[#d3e0ea] bg-white px-4 py-3 shadow-lg"><UserRoundCheck size={17} className="text-[#d45c46]"/><div><p className="text-[10px] uppercase tracking-[.08em] text-[#738699]">Safe stop</p><p className="text-[12px] font-semibold">4 decisions held for human review</p></div></div></div>
     </div>
-  );
-}
+  </section>
+
+  <section className="border-b border-[#dce7f1] bg-white py-8"><div className="page-shell grid gap-7 sm:grid-cols-3"><div><p className="text-[9px] font-bold uppercase tracking-[.12em] text-[#7b8d9e]">Demo customer</p><p className="mt-2 text-sm font-semibold">Northstar Professional Association</p><p className="mt-1 text-[10px] text-[#74879a]">Fictional national membership organization</p></div><div><p className="text-[9px] font-bold uppercase tracking-[.12em] text-[#7b8d9e]">What Northstar does</p><p className="mt-2 text-sm font-semibold">Advances professional careers</p><p className="mt-1 text-[10px] leading-5 text-[#74879a]">Education, events, mentoring, career services, and community</p></div><div><p className="text-[9px] font-bold uppercase tracking-[.12em] text-[#7b8d9e]">Who uses Mission Control</p><p className="mt-2 text-sm font-semibold">Northstar’s operating teams</p><p className="mt-1 text-[10px] leading-5 text-[#74879a]">Membership, events, community, and governance staff</p></div></div></section>
+
+  <section id="product" className="bg-white py-24 sm:py-32"><div className="page-shell"><div className="grid gap-12 lg:grid-cols-[.72fr_1.28fr]"><div><p className="eyebrow text-[#f36f56]">The product now</p><h2 className="mt-5 text-balance text-4xl font-semibold leading-[1.05] tracking-[-.04em] sm:text-5xl">One operating surface from population screening to governed release.</h2></div><p className="max-w-2xl text-lg leading-8 text-[#5b6e81] lg:justify-self-end">Mission Control is not a chatbot and it is not a static agent builder. It is a working control plane for running synthetic workflows, inspecting their boundaries, enforcing explicit authority rules, and holding external action until policy and people allow it.</p></div><div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-4">{productSurfaces.map(([Icon,title,copy],index)=><div key={String(title)} className={`rounded-[22px] border p-5 ${index===0?"border-[#a9caec] bg-[#f1f7ff]":"border-[#dce5ed] bg-[#fbfdff]"}`}><span className="grid size-10 place-items-center rounded-xl bg-white text-[#1263e6] shadow-sm"><Icon size={17}/></span><h3 className="mt-7 text-sm font-semibold">{title as string}</h3><p className="mt-3 text-[11px] leading-5 text-[#64788b]">{copy as string}</p></div>)}</div></div></section>
+
+  <section id="how-it-works" className="border-y border-[#dce7f0] bg-[#edf6ff] py-24 sm:py-32"><div className="page-shell"><div className="grid gap-12 lg:grid-cols-[.72fr_1.28fr] lg:items-end"><div><p className="eyebrow text-[#1263e6]">How it operates</p><h2 className="mt-5 text-4xl font-semibold leading-[1.04] tracking-[-.04em] sm:text-5xl">Every stage does one bounded job.</h2></div><p className="max-w-2xl text-lg leading-8 text-[#536b82] lg:justify-self-end">The run advances only after the current output is available and validated. Operators can return to any completed stage to inspect its input, output, trace, evidence, limits, and downstream consequence.</p></div><div className="mt-14 overflow-x-auto rounded-[28px] border border-[#cbddeb] bg-white p-6 surface-shadow sm:p-9"><div className="grid min-w-[900px] grid-cols-7 gap-2">{[[Database,"Population","All scoped records"],[Gauge,"Score","Reproducible rank"],[FileCheck2,"Context","Approved evidence"],[GitBranch,"Agent","Interpret + draft"],[Scale,"Policy","Authorize route"],[UserRoundCheck,"Review","Human judgment"],[Send,"Action","Exact approved release"]].map(([Icon,label,detail],index)=><div key={String(label)} className="relative text-center">{index<6&&<ArrowRight className="absolute -right-4 top-7 z-10 text-[#a4b4c4]" size={16}/>}<span className="mx-auto grid size-14 place-items-center rounded-2xl bg-[#eef6ff] text-[#1263e6]"><Icon size={21}/></span><p className="mt-4 text-sm font-semibold">{label as string}</p><p className="mt-1 text-[10px] text-[#75879a]">{detail as string}</p></div>)}</div></div><div className="mt-12 grid gap-4 lg:grid-cols-3">{[["Membership Retention","12 members","Risk scoring → relevant outreach"],["Community Moderation","10 posts","Classification → reversible action"],["Event Growth","6 events","Opportunity scoring → approved campaign"]].map(([title,population,outcome])=><div key={title} className="rounded-2xl border border-[#cadbe9] bg-white p-5"><div className="flex items-center justify-between"><h3 className="text-sm font-semibold">{title}</h3><span className="rounded-full bg-[#eaf3ff] px-2.5 py-1 text-[9px] font-semibold text-[#1263e6]">{population}</span></div><p className="mt-3 text-xs text-[#687c8f]">{outcome}</p></div>)}</div></div></section>
+
+  <section className="bg-[#10253f] py-24 text-white sm:py-32"><div className="page-shell grid gap-14 lg:grid-cols-[.78fr_1.22fr]"><div><p className="eyebrow text-[#63cdf1]">Inspect, don’t infer</p><h2 className="mt-5 text-balance text-4xl font-semibold leading-[1.05] tracking-[-.04em] sm:text-5xl">See exactly what happened at every stage.</h2><p className="mt-5 text-base leading-7 text-white/58">Open any completed step to inspect the records it received, the evidence it used, the decision it produced, and what can happen next.</p><Link href="/studio" className="focus-ring mt-8 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#10253f]">Inspect a completed run <ArrowRight size={15}/></Link></div><div className="divide-y divide-white/12 border-y border-white/12">{[["01","Source record","Raw scoped attributes, validation state, and the explicit fact that no decision exists yet."],["02","Scoring + context","Ranked output, threshold meaning, and the exact evidence package passed forward."],["03","Agent result","What the workflow found, the proposed action, confidence, trace, and draft."],["04","Policy result","Matched rule, authorization route, consequence, and why Claude cannot approve itself."]].map(row=><div key={row[0]} className="grid grid-cols-[42px_120px_1fr] gap-3 py-6 sm:grid-cols-[54px_150px_1fr]"><span className="font-mono text-xs text-[#63cdf1]">{row[0]}</span><h3 className="text-sm font-semibold">{row[1]}</h3><p className="text-xs leading-6 text-white/55">{row[2]}</p></div>)}</div></div></section>
+
+  <section id="architecture" className="bg-white py-24 sm:py-32"><div className="page-shell"><div className="max-w-3xl"><p className="eyebrow text-[#7a69d8]">Architecture boundaries</p><h2 className="mt-5 text-balance text-4xl font-semibold tracking-[-.04em] sm:text-5xl">Hybrid separates repeatable control from contextual judgment.</h2><p className="mt-5 text-lg leading-8 text-[#5a6e81]">The architecture is expressed through visible responsibility boundaries—not unverified benchmark claims. Ordinary software owns reproducibility, Claude handles bounded interpretation, and people retain consequential authority.</p></div><div className="mt-14 grid gap-4 lg:grid-cols-3">{[["Deterministic software","Screen + govern","Population intake, ranking, consent checks, confidence thresholds, and routing remain reproducible and inspectable."],["Claude","Interpret + prepare","The model receives a constrained evidence package, interprets ambiguous context, and prepares a recommendation and draft."],["Authorized person","Decide + release","A reviewer sees the evidence, policy reason, and exact content before approving, editing, or rejecting consequential work."]].map((item,index)=><div key={item[0]} className={`relative rounded-[24px] border p-6 ${index===1?"border-[#7a69d8] bg-[#f6f3ff] shadow-[0_18px_40px_rgba(122,105,216,.1)]":"border-[#dce5ed]"}`}><p className="text-xs font-semibold text-[#718397]">{item[1]}</p><h3 className="mt-2 text-xl font-semibold">{item[0]}</h3><p className="mt-4 text-sm leading-6 text-[#66798c]">{item[2]}</p></div>)}</div></div></section>
+
+  <section className="bg-white py-24 sm:py-32"><div className="page-shell grid gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center"><div className="rounded-[28px] border border-[#d7e3ed] bg-[#fbfdff] p-6 surface-shadow"><div className="flex items-center justify-between"><div><p className="text-[10px] font-bold uppercase tracking-[.1em] text-[#d4533d]">Human review queue</p><h3 className="mt-2 text-xl font-semibold">4 decisions waiting</h3></div><span className="rounded-full bg-[#fff0ed] px-3 py-1 text-xs font-semibold text-[#bd4e3b]">1 grouped</span></div><div className="mt-5 divide-y divide-[#e2e9ef] border-y border-[#e2e9ef]">{[["Sarah Chen","Individual","25% renewal incentive + leadership program"],["Elena Torres","Grouped approval","Career fair + student mentoring invitation"],["Priya Nair","Individual","Success call + executive renewal credit"]].map(([name,route,action])=><div key={name} className="grid grid-cols-[1fr_auto] gap-3 py-4"><div><p className="text-xs font-semibold">{name}</p><p className="mt-1 text-[10px] text-[#718496]">{action}</p></div><span className="self-start rounded-full bg-[#fff3da] px-2 py-1 text-[8px] font-bold uppercase text-[#8d6419]">{route}</span></div>)}</div><Link href="/studio#review" className="focus-ring mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#10253f] text-sm font-semibold text-white">Open the review queue <ArrowRight size={15}/></Link></div><div className="lg:pl-12"><p className="eyebrow text-[#f36f56]">Human authority</p><h2 className="mt-5 text-4xl font-semibold leading-[1.04] tracking-[-.04em] sm:text-5xl">Review the finding and exact draft before release.</h2><p className="mt-5 text-lg leading-8 text-[#5c7084]">Internal findings and recommendations are clearly separated from recipient-facing copy. A reviewer sees why policy escalated and the exact message that will be released; approval moves only that outward-facing content into action history.</p></div></div></section>
+
+  <section className="bg-[#10253f] py-20 text-white"><div className="page-shell grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end"><div><p className="eyebrow text-[#6bd3f7]">Built for a repeatable demo</p><h2 className="mt-4 max-w-4xl text-balance text-4xl font-semibold tracking-[-.04em] sm:text-5xl">Run it, inspect it, reset it, and tell the story again.</h2><p className="mt-5 max-w-2xl text-sm leading-7 text-white/58">All records are synthetic and external actions are simulated. Reset clears operating state while leaving the Claude key and project configuration untouched.</p></div><Link href="/case-study" className="focus-ring inline-flex h-12 items-center gap-2 rounded-full bg-white px-6 text-sm font-semibold text-[#10253f]">See the product decisions <ArrowRight size={16}/></Link></div></section>
+  <footer className="bg-[#0b1d31] py-10 text-white"><div className="page-shell flex flex-col gap-5 text-xs sm:flex-row sm:items-center sm:justify-between"><div><p className="font-semibold">Akash Sangami</p><p className="mt-1 text-white/50">Independent product concept.</p></div><div className="flex gap-5"><a href="mailto:sangami.akash@gmail.com" className="hover:text-[#6ed4fa]">Email</a><a href="https://www.linkedin.com/in/akashsangami/" className="hover:text-[#6ed4fa]">LinkedIn</a><Link href="/studio" className="text-[#6ed4fa]">Open Studio</Link></div></div></footer>
+</main>}
