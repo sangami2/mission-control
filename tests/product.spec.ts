@@ -1,6 +1,19 @@
 import { expect, test } from "@playwright/test";
 import { getWorkflowFixture } from "../src/lib/workflow-domain";
 
+test("demo video is available from the landing page only",async({page})=>{
+  await page.goto("/");
+  const watchDemo=page.getByRole("button",{name:"Watch demo"});
+  await watchDemo.click();
+  const dialog=page.getByRole("dialog",{name:"See Mission Control in operation"});
+  await expect(dialog).toBeVisible();
+  await expect(dialog.getByTestId("demo-video")).toHaveAttribute("src","/mission-control-demo.mp4");
+  await page.getByRole("button",{name:"Close demo video"}).click();
+  await page.getByRole("link",{name:/Run the live prototype/}).click();
+  await expect(page).toHaveURL(/\/studio/);
+  await expect(page.getByRole("dialog",{name:"See Mission Control in operation"})).toHaveCount(0);
+});
+
 test("landing page and primary navigation", async ({ page }) => {
   const errors:string[]=[]; page.on("console",m=>{if(m.type()==="error")errors.push(m.text())});
   await page.goto("/");
